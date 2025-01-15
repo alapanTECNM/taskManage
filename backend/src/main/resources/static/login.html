@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="stylesheet" href="./assets/fontawesome/css/all.min.css">
+
+    <!-- Import Google Icon Font -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Import materialize.css -->
+    <link type="text/css" rel="stylesheet" href="./assets/materialize/css/materialize.css" media="screen,projection"/>
+
+    <link rel="stylesheet" href="./assets/css/styles.css"/>
+    <link rel="stylesheet" href="assets/css/login.css">
+</head>
+<body>
+<div class="container">
+    <div class="login-form">
+        <img src="assets/images/notesLogo.png" alt="Logo" width="100" height="100">
+        <form id="loginForm">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="username" name="username" type="text" required>
+                <label for="username">Usuario</label>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">lock</i>
+                <input id="password" name="password" type="password" required>
+                <label for="password">Contraseña</label>
+                <i class="material-icons prefix toggle-password" data-target="password"  style="cursor: pointer; position: absolute; right: 10px; top: 50%; transform: translateY(-50%);">
+                    visibility
+                </i>
+            </div>
+
+            <a href="#" class="forgot-password">¿Olvidaste tu cuenta?</a>
+
+            <!-- Login button -->
+            <button type="submit" class="waves-effect waves-orange btn-large orange lighten-2">
+                <span class="white-text">LOGIN</span>
+            </button>
+
+            <a href="" class="register">Regístrate</a>
+        </form>
+    </div>
+</div>
+
+<!-- Modal de registro -->
+<div id="registerModal" class="rmodal">
+    <div class="rmodal-content">
+        <div class="rmodal-close-icon">
+            <span class="material-icons modal-close">close</span>
+        </div>
+        <h4>Regístrate</h4>
+        <form id="registerForm">
+            <div class="input-field">
+                <input id="name" type="text" class="validate" name="name" required
+                       pattern="^[A-ZÁÉÍÓÚÑa-záéíóúñ]+(\s[A-ZÁÉÍÓÚÑa-záéíóúñ]+)*$"
+                       title="Ingresa un nombre válido. Solo se permiten letras y espacios.">
+                <label for="name">Nombre</label>
+            </div>
+            <div class="input-field">
+                <input id="email" class="validate" name="email" type="email" required>
+                <label for="email">Email</label>
+            </div>
+            <div class="input-field">
+                <input id="regUsername" name="username" type="text" class="validate" required
+                       pattern="^(?!.*[._]{2})[a-zA-Z0-9](?:[a-zA-Z0-9._]{2,8}[a-zA-Z0-9])?$"
+                       title="El nombre de usuario debe tener entre 4 y 10 caracteres, solo puede incluir letras, números, guiones bajos (_) y puntos (.), pero no puede comenzar ni terminar con ellos ni tener dos consecutivos.">
+
+                <label for="regUsername">Usuario</label>
+            </div>
+            <div class="input-field">
+                <input id="regPassword" name="password" type="password" class="validate" required
+                       pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[A-Za-z\d@$!%*?&.]{8,16}$"
+                       title="La contraseña debe tener entre 8 y 16 caracteres, incluir al menos una letra mayúscula, una letra minúscula, un número y un carácter especial (@$!%*?&.).">
+                <label for="regPassword">Contraseña</label>
+                <i class="material-icons prefix toggle-password" data-target="regPassword"  style="cursor: pointer; position: absolute; right: 10px; top: 50%; transform: translateY(-50%);">
+                    visibility
+                </i>
+            </div>
+            <button type="submit" class="waves-effect waves-light btn orange">Registrarse</button>
+        </form>
+    </div>
+</div>
+
+<!-- Modal para Olvidé mi contraseña -->
+<div id="forgotPasswordModal" class="rmodal">
+    <div class="rmodal-content">
+        <div class="rmodal-close-icon">
+            <span class="material-icons modal-close">close</span>
+        </div>
+        <h4>Recuperar Contraseña</h4>
+        <form id="forgotPasswordForm">
+            <div class="input-field">
+                <input id="forgotEmail" type="email" class="validate" name="email" required>
+                <label for="forgotEmail">Correo Electrónico</label>
+            </div>
+            <button type="submit" class="waves-effect waves-light btn orange">Aceptar</button>
+        </form>
+    </div>
+</div>
+
+
+<!-- JavaScript -->
+<script type="text/javascript" src="./assets/materialize/js/materialize.min.js"></script>
+<script type="text/javascript" src="assets/js/login.js"></script>
+</body>
+</html>

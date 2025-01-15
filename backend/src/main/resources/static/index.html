@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="stylesheet" href="./assets/fontawesome/css/all.min.css">
+
+    <!-- Import Google Icon Font -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Import materialize.css -->
+    <link type="text/css" rel="stylesheet" href="./assets/materialize/css/materialize.min.css" media="screen,projection"/>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bson/5.2.0/bson.min.js"></script>
+
+    <link rel="stylesheet" href="./assets/css/styles.css"/>
+    <link rel="stylesheet" href="./assets/css/index.css">
+</head>
+<body>
+<div class="grid-container">
+    <div class="navbar">
+        <div class="navbar-left">
+            <img src="assets/images/notesLogo.png" alt="Logo" width="25" height="25"> Tareas
+        </div>
+        <div class="navbar-right">
+            <a id="username-display" class="username">
+                Usuario
+            </a>
+            <a id="logoutButton" class="waves-effect waves-light btn-small">
+                <i class="material-icons left">exit_to_app</i> Log out
+            </a>
+        </div
+
+                <!-- Ventana emergente para configuración de usuario -->
+        <div id="settings-modal" class="tmodal hidden">
+            <div class="tmodal-content">
+                <div class="tmodal-close-icon">
+                    <span id="close-settings-modal" class="material-icons close">close</span>
+                </div>
+                <h4 style="color: black;">Perfil</h4>
+                <form id="settings-form">
+                    <div class="input-field col s6">
+                        <input id="user-name" type="text" class="validate" name="name" required
+                               pattern="^[A-ZÁÉÍÓÚÑa-záéíóúñ]+(\s[A-ZÁÉÍÓÚÑa-záéíóúñ]+)*$"
+                               title="Ingresa un nombre válido. Solo se permiten letras y espacios.">
+                        <label for="user-name">Nombre</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="user-email" type="email" class="validate" name="email" required disabled>
+                        <label for="user-email">Correo</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="user-username" type="text" class="validate" name="username" required disabled>
+                        <label for="user-username">Username</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="user-password" name="password" type="password" class="validate" required
+                               pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[A-Za-z\d@$!%*?&.]{8,16}$"
+                               title="La contraseña debe tener entre 8 y 16 caracteres, incluir al menos una letra mayúscula, una letra minúscula, un número y un carácter especial (@$!%*?&.).">
+                        <label for="user-password">Password</label>
+                        <i class="material-icons prefix toggle-password" style="cursor: pointer; position: absolute; right: 10px; top: 50%; transform: translateY(-50%);">
+                            visibility
+                        </i>
+                    </div>
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Guardar
+                        <i class="material-icons left">save</i>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <div class="content">
+
+
+        <section id="tasks-container">
+            <ul id="task-list"></ul>
+        </section>
+    </div>
+    <a id="add-task-btn" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+</div>
+<!-- Formulario agregar/editar tarea -->
+<div id="task-tmodal" class="tmodal hidden">
+    <div class="tmodal-content">
+        <div class="tmodal-close-icon">
+            <span id="close-tmodal" class="material-icons close">close</span>
+        </div>
+        <h4>Crear/Editar Tarea</h4>
+        <form id="task-form">
+            <div class="input-field col s6">
+                <input id="task-name" type="text" class="validate" name="task-name" required
+                       pattern="^[A-ZÁÉÍÓÚÑa-záéíóúñ0-9\[\]\(\)\.;,\-]+(\s[A-ZÁÉÍÓÚÑa-záéíóúñ0-9\[\]\(\)\.;,\-]+)*$"
+                       title="Nombre de la tarea. Se permiten letras, números, espacios, guiones, símbolos de puntuación como punto, coma, punto y coma, paréntesis y corchetes.">
+                <label for="task-name">Nombre de la tarea</label>
+            </div>
+
+            <div class="input-field col s12">
+                <textarea id="task-desc" name="task-desc" class="materialize-textarea"></textarea>
+                <label for="task-desc">Descripción</label>
+            </div>
+
+            <label>Importancia</label>
+            <select class="browser-default" id="task-priority" name="task-priority" required>
+                <option value="" disabled selected>Seleccionar...</option>
+                <option value="Baja">Baja</option>
+                <option value="Media">Media</option>
+                <option value="Alta">Alta</option>
+            </select>
+
+            <label for="task-created">Fecha de Creación</label>
+            <input type="date" id="task-created" name="task-created" required>
+
+            <label for="task-deadline">Fecha Límite</label>
+            <input type="date" id="task-deadline" name="task-deadline" required>
+
+            <button class="btn waves-effect waves-light" type="submit" name="action">Guardar
+                <i class="material-icons left">save</i>
+            </button>
+        </form>
+    </div>
+</div>
+<!-- JavaScript -->
+<script type="text/javascript" src="./assets/materialize/js/materialize.min.js"></script>
+<script type="module" src="assets/js/index.js"></script>
+</body>
+</html>

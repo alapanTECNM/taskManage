@@ -1,0 +1,7 @@
+/* styles.css */
+:root {
+    --primary-color: #ffa000; /* Color principal */
+    --secondary-color: #E0E0E0; /* Color secundario */
+    --text-color-login: #E0E0E0; /* Color de texto */
+    --background-color: #f5f5f5; /* Color de fondo */
+}
